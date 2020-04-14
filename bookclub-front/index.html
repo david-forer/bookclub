@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Family Book Club</title>
+</head>
+<body>
+    <h1>The Book Club</h1>
+
+    <form accept-charset="UTF-8" action="http://localhost:3000/books" method="POST" id="book_form">
+        <h3>Add a Book We Own:</h3>
+    <input type="text" name="book[title]" value=" Title " />
+    <input type="text" name="book[author]" value=" Author " />
+    <input type="text" name="book[genre]" value=" Genre " />
+    <input type="text" name="book[description]" value=" Description " />
+    <input type="text" name="book[image]" value=" Image " />
+    <!-- <input type="integer" name="book[user_id]" value=" User Id " /> -->
+    <input type="submit" value="submit" />
+    
+    </form>
+
+    <div class="card">
+        <div id="container" style="margin: 2em; border: 2px solid black;">
+            <h3> Books We Own:</h3>
+        </div>
+    </div>
+
+    <div class="flex-container">
+
+    <div class="card">
+        <div id="users-container" style="margin: 2em; border: 2px solid black;">
+            <h3>Club Members:</h3>
+        </div>
+    </div>
+
+    <div class="card">
+        <div id="wanted-container" style="margin: 2em; border: 2px solid black;">
+            <h3>Books to Read:</h3>
+        </div>
+    </div>  
+</div>
+
+
+</body>
+<footer>
+    <script type="text/javascript" src="application.js"></script>
+</footer>
+</html>
