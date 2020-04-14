@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # before_action :authenticate_user!
+    before_action :set_user, only: [:show, :update, :destroy]
 
     def index 
         users = User.all 
@@ -7,10 +7,15 @@ class UsersController < ApplicationController
     end
     
     def show
-        @user = User.find(params[:id])
+        render json: @user
+        
     end
 
     private
+
+    def set_user
+      @user = User.find(params[:id])
+    end
 
     def user_params
       params.require(:email_address).permit(:first_name, :last_name)
