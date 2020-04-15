@@ -9,21 +9,23 @@
 <body>
     <h1>The Book Club</h1>
 
-    <form accept-charset="UTF-8" action="http://localhost:3000/books" method="POST" id="book_form">
-        <h3>Add a Book We Own:</h3>
-    <input type="text" name="book[title]" value=" Title " />
-    <input type="text" name="book[author]" value=" Author " />
-    <input type="text" name="book[genre]" value=" Genre " />
-    <input type="text" name="book[description]" value=" Description " />
-    <input type="text" name="book[image]" value=" Image " />
-    <!-- <input type="integer" name="book[user_id]" value=" User Id " /> -->
-    <input type="submit" value="submit" />
-    
-    </form>
+
 
     <div class="card">
         <div id="container" style="margin: 2em; border: 2px solid black;">
             <h3> Books We Own:</h3>
+        </div>
+        <div class="form-style">
+            <form accept-charset="UTF-8" action="http://localhost:3000/books" method="POST" id="book_form">
+                <h3>Add a Book We Own:</h3>
+                <input type="text" name="book[title]" value="title " id="title_input" />
+                <input type="text" name="book[author]" value=" author" id="author_input" />
+                <input type="text" name="book[genre]" value=" genre" id="genre_input" />
+                <input type="text" name="book[description]" value=" description" id="description_input" />
+                <input type="text" name="book[image]" value="image " id="image_input" />
+                
+                <input type="submit" value="Submit" onclick="window.sendForm(event)" class="book_submit" />
+            </form>
         </div>
     </div>
 
@@ -38,6 +40,18 @@
     <div class="card">
         <div id="wanted-container" style="margin: 2em; border: 2px solid black;">
             <h3>Books to Read:</h3>
+        </div>
+
+        <div class="form-style">
+            <form accept-charset="UTF-8" action="http://localhost:3000/new_books" method="POST" id="new_form">
+                <h3>Add a Book to Get:</h3>
+                <input type="text" name="newbook[title]" value="title " id="new_title_input" />
+                <input type="text" name="newbook[author]" value=" author" id="new_author_input" />
+                <input type="text" name="newbook[genre]" value=" genre" id="new_genre_input" />
+                <input type="text" name="newbook[link]" value=" link" id="new_link_input" />
+        
+                <input type="submit" value="Submit" onclick="window.sendNewForm(event)" class="new_submit" />
+            </form>
         </div>
     </div>  
 </div>

@@ -69,6 +69,58 @@ function wantBooks() {
 
 wantBooks();
 
-function sendBooksForm() {
-    
+window.sendForm = function (event) {
+    event.preventDefault();
+    var xhttp = new this.XMLHttpRequest();
+    xhttp.open("POST", "http://localhost:3000/books", true);
+    xhttp.onload = function (event) {
+        let container = document.getElementById("container");
+        let response = JSON.parse(event.target.response);
+
+        container.insertAdjacentHTML(
+            elementAdditionPosition,
+            createResponse(response)
+        );
+    };
+    var formData = new this.FormData(document.getElementById("book_form"));
+    xhttp.send(formData);
+    document.getElementById("title_input").value = "";
+    document.getElementById("author_input").value = "";
+    document.getElementById("genre_input").value = "";
+    document.getElementById("description_input").value = "";
+    document.getElementById("image_input").value = "";
+};
+
+window.sendNewForm = function (event) {
+    event.preventDefault();
+    var xhttp = new this.XMLHttpRequest();
+    xhttp.open("POST", "http://localhost:3000/new_books", true);
+    xhttp.onload = function (event) {
+        let container = document.getElementById("wanted-container");
+        let response = JSON.parse(event.target.response);
+
+        container.insertAdjacentHTML(
+            elementAdditionPosition,
+            createResponse(response)
+        );
+    };
+    var formData = new this.FormData(document.getElementById("new_form"));
+    xhttp.send(formData);
+    document.getElementById("new_title_input").value = "";
+    document.getElementById("new_author_input").value = "";
+    document.getElementById("new_genre_input").value = "";
+    document.getElementById("new_link_input").value = "";
+
+};
+
+function createResponse(response) {
+    return (
+        `<div class="task" id="${response.id}" onclick="deleteResponse('${response.id}')">` +
+        "[" +
+        response.id +
+        "]: " +
+        response.task +
+        "<br />" +
+        "</div>"
+    );
 }
